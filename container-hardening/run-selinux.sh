@@ -9,7 +9,7 @@ docker run \
   --restart="always" \
   --read-only \
   --detach \
-  --security-opt se \
+  --security-opt label=type:chard.process \
   --cap-drop ALL \
   chard:local
 
