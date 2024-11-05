@@ -1,0 +1,20 @@
+services:
+  chard:
+    image: chard:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chard
+    ports:
+      - "8080:8080"
+    restart: always
+    security_opt: #use seccomp file
+      - seccomp=profile.json
+    cap_drop:
+      - ALL
+    read_only: true
+    networks:
+      - chard
+networks:
+  chard:
+    driver: bridge #local use to teste the container

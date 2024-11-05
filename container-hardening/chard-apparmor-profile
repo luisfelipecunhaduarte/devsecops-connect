@@ -1,0 +1,20 @@
+#include <tunables/global>
+
+/usr/bin/docker-container-chard {
+  #include <abstractions/base>
+
+  capability,
+  network,
+  file,
+  umount,
+
+  /bin/** rix,
+  /lib/** rix,
+  /usr/** rix,
+  /etc/** rix,
+  /var/** rix,
+  /tmp/** rw,
+
+  deny /proc/* w,
+  deny /sys/* w,
+}
